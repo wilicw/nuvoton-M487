@@ -47,11 +47,11 @@ else ()
     add_compile_options(-Og -g)
 endif ()
 
-include_directories(Library/CMSIS/Include Library/Device/Nuvoton/M480/Include Library/StdDriver/inc Library/Device/Nuvoton/M480/Source Library/StdDriver/inc)
+include_directories(Library/CMSIS/Include Library/Device/Nuvoton/M480/Include Library/StdDriver/inc Library/Device/Nuvoton/M480/Source Library/StdDriver/inc RTT/RTT RTT/Config)
 
 add_definitions(-DDEBUG)
 
-file(GLOB_RECURSE SOURCES "Library/Device/Nuvoton/M480/Source/*.*" "Library/StdDriver/src/*.*" "src/main.c")
+file(GLOB_RECURSE SOURCES "Library/Device/Nuvoton/M480/Source/*.*" "Library/StdDriver/src/*.*" "RTT/RTT/*.*" "src/main.c")
 
 set(LINKER_SCRIPT ${CMAKE_SOURCE_DIR}/Library/Device/Nuvoton/M480/Source/gcc_arm.ld)
 
