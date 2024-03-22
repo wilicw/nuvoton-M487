@@ -47,13 +47,13 @@ else ()
     add_compile_options(-Og -g)
 endif ()
 
-include_directories(Library/CMSIS/Include Library/Device/Nuvoton/M480/Include Library/StdDriver/inc Library/Device/Nuvoton/M480/Source Library/StdDriver/inc RTT/RTT RTT/Config)
+include_directories(M480BSP/Library/CMSIS/Include M480BSP/Library/Device/Nuvoton/M480/Include M480BSP/Library/StdDriver/inc M480BSP/Library/Device/Nuvoton/M480/Source M480BSP/Library/StdDriver/inc RTT/RTT RTT/Config)
 
 add_definitions(-DDEBUG)
 
-file(GLOB_RECURSE SOURCES "Library/Device/Nuvoton/M480/Source/*.*" "Library/StdDriver/src/*.*" "RTT/RTT/*.*" "src/main.c")
+file(GLOB_RECURSE SOURCES "M480BSP/Library/Device/Nuvoton/M480/Source/GCC/*.*" "M480BSP/Library/Device/Nuvoton/M480/Source/system_M480.c" "M480BSP/Library/StdDriver/src/*.*" "RTT/RTT/*.*" "src/main.c")
 
-set(LINKER_SCRIPT ${CMAKE_SOURCE_DIR}/Library/Device/Nuvoton/M480/Source/gcc_arm.ld)
+set(LINKER_SCRIPT ${CMAKE_SOURCE_DIR}/M480BSP/Library/Device/Nuvoton/M480/Source/GCC/gcc_arm.ld)
 
 add_link_options(-Wl,--gc-sections,-gc-sections,--print-memory-usage,-Map=${PROJECT_BINARY_DIR}/${PROJECT_NAME}.map)
 add_link_options(-mcpu=cortex-m4 -mthumb -mthumb-interwork)
